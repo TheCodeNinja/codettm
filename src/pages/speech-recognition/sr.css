@@ -1,0 +1,78 @@
+.speech-recognition-button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.transcript {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  color: #333;
+  max-width: 600px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+/* ************************************** */
+/* AudioSearch                           */
+/* ************************************** */
+
+.audio-search-container {
+  width: 100%;
+  margin: auto;
+}
+
+.audio-search-search-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.audio-search-search-box input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.audio-search-search-box button {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.audio-search-search-box button:hover {
+  background-color: #0056b3;
+}
+
+.audio-search-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.audio-search-card h3 {
+  margin-top: 0;
+}
+
+.audio-search-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* @media (max-width: 600px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+} */
