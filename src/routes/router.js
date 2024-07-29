@@ -8,6 +8,9 @@ import PhoneCallRecognitionPage from "../pages/speech-recognition/PhoneCallRecog
 import AudioSearchPage from "../pages/speech-recognition/AudioSearchPage";
 import ThreeDimensionPage from "../pages/3d/ThreeDimensionPage";
 import ScrollPage from "../pages/scroll/ScrollPage";
+import ReactHookFormPage from "../pages/form/ReactHookFormPage";
+import TempPage from "../pages/home/TempPage";
+import SlickCarouselPage from "../pages/carousel/SlickCarouselPage";
 
 
 
@@ -17,8 +20,20 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/ag-grid-table",
+    path: "/temp",
+    element: <TempPage />,
+  },
+  {
+    path: "/carousel/slick-carousel",
+    element: <SlickCarouselPage />,
+  },
+  {
+    path: "/table/ag-grid-table",
     element: <AgGridTable />,
+  },
+  {
+    path: "/form/react-hook-form",
+    element: <ReactHookFormPage />,
   },
   {
     path: "/audio-search",

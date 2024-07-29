@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Element, Link } from 'react-scroll';
+import React, { useEffect, useState } from 'react';
+import { Element, Link, animateScroll as scroll, scroller } from 'react-scroll';
 import { useSpring, animated } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
 import './scroll.css';
@@ -19,7 +19,8 @@ const Header = () => {
 };
 
 const AnimatedSection = ({ children, className, id }) => {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  // const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [ref, inView] = useInView({ threshold: 0.1 });
 
   const fadeAnimation = useSpring({
     opacity: inView ? 1 : 0,
@@ -30,17 +31,29 @@ const AnimatedSection = ({ children, className, id }) => {
   const scaleAnimation = useSpring({
     transform: inView ? 'scale(1)' : 'scale(0)',
     opacity: inView ? 1 : 0,
-    config: { tension: 170, friction: 26 },
+    config: { tension: 1700, friction: 26 },
   });
 
+  useEffect(() => {
+    if (inView) {
+      scroller.scrollTo(id, {
+        duration: 500,
+        smooth: true,
+        offset: -50, // Adjust this value to align the section with the top of the viewport
+      });
+    }
+  }, [inView, id]);
+
   return (
-    <section ref={ref} className={className} id={id}>
-      <animated.div style={fadeAnimation}>
-        <animated.div style={scaleAnimation}>
-          {children}
+    <Element name={id}>
+      <section ref={ref} className={className} id={id}>
+        <animated.div style={fadeAnimation}>
+          <animated.div style={scaleAnimation}>
+            {children}
+          </animated.div>
         </animated.div>
-      </animated.div>
-    </section>
+      </section>
+    </Element>
   );
 };
 
